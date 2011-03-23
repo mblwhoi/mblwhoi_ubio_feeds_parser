@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implementation of hook_feeds_plugins().
+ */
+function mblwhoi_ubio_feeds_parser_feeds_plugins() {
+  $info = array();
+  $info['UbioParser'] = array(
+    'name' => 'uBio RSS Parser',
+    'description' => 'Parses uBio RSS Feed',
+    'handler' => array(
+      'parent' => 'FeedsParser', // A plugin needs to derive either directly or indirectly from FeedsFetcher, FeedsParser or FeedsProcessor.
+      'class' => 'UbioParser',
+      'file' => 'UbioParser.inc',
+      'path' => drupal_get_path('module', 'mblwhoi_ubio_feeds_parser'),
+    ),
+  );
+  return $info;
+  }
+
+
+function mblwhoi_ubio_feeds_parser_enable() {
+
+  //clear the cache to display in Feeds as available plugin.
+  cache_clear_all('plugins:feeds:plugins', 'cache');
+}
+
+?>

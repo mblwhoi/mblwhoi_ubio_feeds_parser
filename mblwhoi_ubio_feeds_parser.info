@@ -1,0 +1,6 @@
+name = "mblwhoi_ubio_feeds_parser"
+description = "MBLWHOI Library uBio RSS Feed Parser"
+core = 6.x
+package = MBLWHOI
+dependencies[] = feeds
+
